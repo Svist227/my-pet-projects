@@ -1,0 +1,28 @@
+.header__nav{
+    @include flex-center();
+    
+    height: fluid(75,61);
+    width: fluid(555,412);
+    gap:30px;
+    background-color: var(--color-black-06);
+    border-radius: var(--border-radius-l);
+    border: var( --border-radius-xxxs) solid var(--color-black-12);
+    
+    
+}
+a {
+    text-decoration: none;
+  
+}
+.header__nav .active{
+   background-color: var(--color-black-10);
+   height: 55px;
+   width: 98px;
+   @include flex-center();
+   border-radius: var(--border-radius-l);
+   color:#ffffff;
+   font-weight: 500;
+
+
+    
+}

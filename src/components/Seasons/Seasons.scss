@@ -1,0 +1,96 @@
+.seasons{
+    display: grid;
+    
+    
+    gap:fluid(20,16);
+
+    
+   .season{
+   
+    
+    .season-details{
+       border-radius: 12px;
+        padding-inline: fluid(50,20);
+        &__content{
+            background-color: var(--color-black-06);
+            
+            display: grid;
+            padding-inline: fluid(50,20);
+            grid-template-rows: 0fr;
+            transition-duration: var(--transition-duration-longer);
+
+            border-bottom-right-radius: 12px;
+            border-bottom-left-radius: 12px;
+            &-inner{
+                overflow: hidden;
+                
+            }
+        }
+
+        &__body{
+            counter-reset: episode-count; //счетчик эпизодов
+            
+           
+           
+           
+            
+
+        }
+        &[open] {
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            .season-details__title-icon{
+             transform: rotate(180deg);
+             transition-duration: var(--transition-duration-longer);
+    
+           }
+           & + .season-details__content{
+           grid-template-rows: 1fr;
+           transition-duration: var(--transition-duration-longer);
+           }
+        }
+       
+        background-color: var(--color-black-06);
+
+        &__title{
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            padding-block: fluid(24,16 );
+            
+            &::marker{
+               display: none;
+               content: "";
+            }
+            &-inner{
+                display: flex;
+                justify-content: start; 
+                gap:fluid(10,6);
+                align-items: center;
+                
+                h4{
+                    margin: 0;
+                }
+            }
+            &-button{
+                padding: 10px;
+                @include square(fluid-to-laptop(52,44));
+                @include flex-center;
+                background-color: var(--color-black-08);
+                border-radius: 50%;
+                border: var(--border);
+            }
+            &-icon{
+               
+                transform: rotate(0deg);
+                transition-duration: var(--transition-duration-longer);
+               
+                                
+                
+            }
+        }
+    }
+   }
+}
+

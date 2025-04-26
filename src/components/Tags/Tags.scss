@@ -1,0 +1,22 @@
+.tags{
+    display: inline-flex;
+    gap:10px;
+    flex-wrap: wrap;
+    
+    
+    
+    
+    &__item{
+        background-color: var(--color-black-08);
+        flex: 0 0 auto; /* Не растягивается, не сжимается */
+        min-width: 0;
+        width: inherit;
+        border:var(--border);
+        border-radius: fluid-to-laptop(8,6);
+        &__title{
+            font-weight: 500;
+            color:var(--color-white);
+            padding: fluid-to-laptop(8,6) fluid-to-laptop(14,12);
+        }
+    }
+}

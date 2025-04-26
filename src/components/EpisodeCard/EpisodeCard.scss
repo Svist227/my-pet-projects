@@ -1,0 +1,124 @@
+    .episode-card{
+
+        counter-increment: episode-count;
+        display: flex;
+        gap: fluid(20,18);
+        padding-block: fluid(40,20); 
+        align-items: center;
+        border-top: var(--border);
+        
+        @include mobile{
+            grid-template-areas: 
+            'player number',
+            'body body';
+            
+        }
+        &__video{
+              
+            display: block;
+            border-radius: 12px;
+            height: 118px;
+            width: 182px;
+            object-fit: cover;
+            border: var(--border);
+            @include mobile{
+                width: 100%;
+            }
+        }
+
+            &__number::before{
+                content: counter(episode-count  , decimal-leading-zero);
+                font-size: fluid-to-laptop(30,24);
+                font-weight: 700;
+                height: 50px;
+                width: inherit;
+                @include flex-center;
+                color: var(--color-gray-60);
+
+            }
+
+        &__player{
+           
+            position: relative;
+            grid-area: player;
+            width: 182px;
+            height: 118px;
+            flex-shrink: 0; //гениально
+
+            &::before{
+                @include abs-cover;
+                content: '';
+                background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%);
+            }
+        }
+        &__play-button{
+            position: absolute;
+            top: 50%;
+            left: 50%;  
+            translate: -50% -25%;    
+            display: flex;
+            @include square(50);
+            padding: 0;
+            color:var(--color-white);
+            background-color: color-mix(
+                in srgb,
+                var(--color-black) 60%,
+                transparent 40%
+            );
+            border: none;
+            border-radius: 50%;
+            @include hover{
+                background-color: var(color--red-60);
+
+            }
+            &:active{
+                scale: 1.05;
+            }
+            &:not(.is-active){
+                display: none;
+            }
+
+            &-icon{
+                &.icon{
+                    --iconSize:30px;
+                }
+            }
+
+        }
+
+        &__info{
+            display: grid;
+            gap:fluid-to-laptop(14,10);
+            grid-area: body;
+
+
+            &-header{
+                display: flex;
+                justify-content: space-between;
+               
+                @include mobile{
+                    flex-direction: column-reverse;
+                    align-items: start;
+                }
+
+            }
+            &-description{
+            
+                @include mobile{
+                    display: none;
+                }
+            }
+        
+        }
+        &__timekeeping{
+            flex-shrink: 0;
+            display: flex;
+            column-gap: 4px;
+            padding: fluid-to-laptop(8,6) fluid-to-laptop(10,6);
+            background-color: var(--color-black-08);
+            border-radius: fluid-to-laptop(8,6);
+            border: var(--border);
+        }
+
+
+    }

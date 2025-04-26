@@ -1,0 +1,50 @@
+.section{
+
+    &-plans{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: fluid-to-laptop(30,20);
+
+        
+        @include tablet{
+            grid-template-columns: repeat(1,1fr);
+            gap:20px;
+        }
+    }
+
+    &-plan{
+        background-color: var(--color-black-10);
+        border: var(--border);
+        border-radius: fluid-to-laptop(12,10);
+        @include mobile {
+            border-radius: 10px;
+        }
+        &__body{
+            padding: 50px;
+        }
+
+}
+
+    &__title{
+
+        &-top{
+            margin-bottom: fluid(16,10);
+        }
+        &-bottom{
+            margin-bottom: fluid(50,20);
+        }
+    }
+    &__price{
+        margin-bottom: fluid(50,30);
+        p span{
+            @include fluid-text;
+           font-size: fluid-text(40,24);
+          
+        }
+    }
+    &__actions{
+        display: flex;
+        column-gap: fluid-to-laptop(20,12);
+    }
+    
+}

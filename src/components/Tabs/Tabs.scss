@@ -1,0 +1,30 @@
+.tabs{
+    --tabsNonActiveContentDisplay: none;
+
+
+    &--enable-only-on-mobile{
+        @include mobile-above{
+            --tabsNonActiveContentDisplay: block;
+            --tabsNavigationDisplay: none;
+        }
+    }
+    display: flex;
+    flex-direction: column  ;
+    padding: fluid(10,8);
+    row-gap: 20px;
+  
+    border-radius: fluid(10,8);
+    border: var(--border);
+
+    &__content {
+        &:not(.is-active){
+            display: var(--tabsNonActiveContentDisplay);
+        }
+    }
+
+    &__body{
+        display: grid; //на movies между табами 0 и 1
+        gap:fluid-to-laptop(170,138)
+       
+    }
+}

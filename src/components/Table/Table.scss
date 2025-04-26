@@ -1,0 +1,35 @@
+table{
+    --tableBorder: var(--border);
+    border-collapse: separate; // важно для рамки чтобы скруглить края таблицы
+    border-radius: fluid-to-laptop(12,10);
+    border: var(--tableBorder);
+
+    thead{
+        background-color: var(--color-black-06);
+
+    }
+    tbody{
+        tr:last-child{
+            td {
+                border-bottom: none; // сброс дефолтных рамок
+            }
+        }
+    }
+    th, td{
+        padding: fluid-to-laptop(30,24);
+        border-bottom: var(--tableBorder);
+
+        &:not(:last-child){
+            border-right: var(--tableBorder);
+        }
+    }
+
+    th{
+        font-size: fluid-to-laptop(20,18);
+        font-weight: 600;
+        color: var(--color-white);
+        text-align: left;
+
+    }
+
+}

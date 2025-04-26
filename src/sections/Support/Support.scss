@@ -1,0 +1,130 @@
+.support{
+    display: grid;
+   padding-block: fluid(75,40);
+   gap: fluid-to-laptop(80,50);
+
+   @include mobile-above{
+    grid-template-columns: 33.5% 1fr;
+   }
+   
+    @include mobile{
+        padding-top: 40px;
+        padding-bottom: 50px;
+    }
+   
+    &__info{
+        display: grid;
+        gap: fluid-to-laptop(50,30);
+        &-header{
+            display: grid;
+        gap: fluid-to-laptop(14,10);
+        }
+        &-title{
+            font-size: fluid-text(48,28);
+
+            &-image .ds{
+                width: 100%;
+                background-color: var(--color-black-06);
+                border: 6px solid var(--color-black-15);
+            }
+        }
+
+    }
+
+    &__form{
+        display: grid;
+        padding: fluid(50,24);
+        border-radius: fluid-to-laptop(12,10);;
+        background-color: var(--color-black-06);
+        column-gap: fluid-to-laptop(50,20);
+        row-gap: fluid(50,20);
+        border: var(--border);
+
+        @include mobile-s-above{
+            grid-template-columns: repeat(2,1fr);
+        }
+
+       
+        
+        &-grow{
+            grid-column-start: 1;
+            grid-column-end: 3;
+            @include mobile-s {
+                grid-column: auto; // на мобилке не тянем через несуществующие колонки
+              }
+           
+        }
+        &-terms{
+            display: flex;
+            justify-content: space-between;
+            grid-column-start: 1;
+            grid-column-end: 3;
+            @include mobile-s {
+                grid-column: auto; // на мобилке не тянем через несуществующие колонки
+              }
+            @include mobile-s{
+                flex-direction: column;
+                gap:4px;
+            }
+             
+        
+        }
+        &-checkbox{ 
+            @include hover{
+                color:var(--color-white);
+
+                p > label::before{
+                    border-color:var(--color-white);
+                }
+            }
+            
+            input + label{
+                display: inline-flex;
+                align-items: center;
+                user-select: none;
+
+                
+                &::before{
+                    content: '';
+                    @include square(fluid-to-laptop(28,24));
+                    border:var(--border);
+                    position: relative;
+                    display: inline-block;
+                    border-radius: 4px;
+                    margin-right: fluid-to-laptop(10,8);;
+                 
+                  }
+                }
+            input:checked + label::after{
+                content: '✔';
+                position: absolute;
+                font-size: fluid-to-laptop(28,24);
+                margin: 3px;
+                color:var(--color-white);
+                transition-duration: inherit;
+                
+            }
+            
+            input{
+                // accent-color: transparent;
+                    position: absolute;
+                    z-index: -1;
+                    opacity: 0;
+                
+                &:disabled{
+                    &, 
+                    & + label{
+                        @include disabled;
+                    }
+                }
+                &:required{
+                    & + label::after{
+                        content: '*' / '';  
+                        color: red($color: #000000);     // чтобы скринридеры не озвучивали *
+                    }
+                }
+                 
+            }
+        }
+    }
+}

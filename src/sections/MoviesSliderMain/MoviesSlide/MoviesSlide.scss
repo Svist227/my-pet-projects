@@ -1,0 +1,92 @@
+.movies{
+    padding-bottom: fluid(125,40);
+    
+    .slider-navigation{
+       position: absolute;
+       bottom:fluid-to-laptop(50,40);
+        inset-inline: fluid-to-laptop(50,40); // боковые отступы
+        z-index: 1;
+        background-color: transparent;
+    }
+
+    &-slide{
+    position: relative;
+    text-align: center;
+    border-radius: var(--border-radius-l);
+    border: var(border);
+    overflow: hidden;
+   
+    &__banner{
+        width: 100%;
+        min-height: fluid(835,468);
+        object-fit: cover;
+        
+       
+        
+    }
+    &__inner{
+        @include abs-cover();
+        background:linear-gradient(0deg, #141414 0%, rgba(20, 20, 20, 0.00) 100%),;      //  url('/Slide1.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        
+        
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: end;
+        row-gap: fluid(30,20);
+        padding: fluid-to-laptop(126,104) fluid(50,24);
+        
+        @include mobile {
+            padding-block: 16px;
+        }
+        &--small-padding-y{
+            padding-block: fluid-to-laptop(20,16);
+        }
+    
+    
+    }
+    
+    
+    &__information{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        // padding-inline: fluid-to-laptop(150,120);
+        row-gap: fluid-to-laptop(4,2) ;
+    }   
+      
+    &__description{
+        padding-inline: fluid-to-laptop(50,40);
+        text-align: center;
+        max-width: fluid-to-laptop(1254,960);   
+      
+
+      
+    }
+    
+    &__actions{
+        @include flex-center();
+        gap:20px;
+
+        @include mobile{
+            flex-direction: column;
+            width: 100%; //растягивание кнопки
+        }
+        
+        &-right{
+            display: flex;
+            column-gap:fluid-to-laptop(10,8);
+            
+        }
+        .play__button{
+            @include mobile-s{
+                width: 100%; //растягивание кнопки
+            }
+        }
+    }
+   
+}
+}

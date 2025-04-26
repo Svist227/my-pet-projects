@@ -1,0 +1,31 @@
+.person-card{
+    display: flex;
+    gap: fluid-to-laptop(10,8);
+    padding: fluid(14,10);
+    border-radius: 8px;
+    border:var(--border);
+    background-color: var(--color-black-08);
+    justify-content: start;
+    
+
+
+    &__img {
+        border-radius: fluid-to-laptop(8,6);
+        width: fluid-to-laptop(57,47);
+        
+       
+        
+    }
+    &__info {
+       &-title{
+        font-weight: 500;
+        font-size: fluid-to-laptop(18,16);
+        color: var(--color-white);
+       }
+       &-from{
+        font-size: fluid-to-laptop(16,14);
+     
+       }
+    }
+
+}

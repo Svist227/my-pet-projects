@@ -1,0 +1,29 @@
+.collections{
+    padding-block: var(--section-padding-y);
+
+   
+    &__button{
+        position: absolute;
+        height: fluid-to-laptop(50,40);
+        margin-inline-start: 16px;
+        left: fluid-to-laptop(50,40);
+        top: 0;
+        translate: 0 -50%;
+    }
+
+    &__group{
+        row-gap: fluid(100,75 );
+        @include mobile-above{
+            position: relative;
+        border: 1px solid var(--color-black-15);
+        border-radius: 12px;
+        padding: fluid-to-laptop(50,40);
+        }
+    }
+    &__section{
+        &.section{
+            padding: 0;
+        }
+    }
+   
+}

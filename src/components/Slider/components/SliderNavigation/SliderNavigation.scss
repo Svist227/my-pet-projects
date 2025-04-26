@@ -1,0 +1,49 @@
+.slider-navigation {
+
+    --displayNavigation: space-between;
+    @include mobile{
+        display: none;
+    }
+    display: flex;
+    align-items: center;
+    justify-content: var(--displayNavigation);
+    &--tile {
+        column-gap: fluid-to-laptop(16,12); // данный флуид используется когда размер отсутсвует в мобильной версии
+        padding: fluid-to-laptop(16,12);
+        background-color: var(--color-black-06);
+        border: var(--border);
+        border-radius: var((--border-radius-l));    
+
+        @include laptop{
+            border-radius:var((--border-radius-m)); // а это используется когда тут нет такого мексина логики уменьшения
+        }
+    }
+
+    &--rounded{
+        display: flex;
+       
+        gap: fluid-to-laptop(10,8);
+
+        .slider-navigation__arrow-button{
+            border-radius: 100%;
+            background-color: var(--color-black-08);
+            border: var(--border);
+          
+        }
+    }
+    &__pagination{
+        display: flex;
+        column-gap: 3px;
+        &-bullet{
+            width: 16px;
+            height: 4px;
+            background-color: var(--color-black-20);
+            border: 100px; // на самом деле без разницы главное больше высоты
+            transition-duration: var(--transition-duration);
+        }
+        .is-active{
+        width: 23px;
+        background-color: var(--color-red-45);
+        }
+    }
+}

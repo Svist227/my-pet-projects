@@ -1,0 +1,40 @@
+
+
+
+.section{
+    display: flex;
+    flex-direction: column;
+    row-gap: fluid(80,49);
+
+    .nav{
+        display: flex;
+        justify-content: space-between;
+        .text{
+        // @include flex-center();
+        // flex-direction: column;
+
+        &__title{
+        font-size:fluid(38,28);
+        font-weight: bold;
+        color:white;
+      
+        }
+        &__description{
+         font-size: fluid(18,14)
+        }
+     }
+     &__actions{
+        
+        @include mobile{
+            /////
+            
+        }
+     }
+}
+    &__body{
+        display: flex;
+        gap:fluid(30,20)
+    
+    }
+
+}

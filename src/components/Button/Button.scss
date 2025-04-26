@@ -1,0 +1,95 @@
+.button {
+    @include flex-center(true);
+
+    column-gap: 4px;
+    padding: fluid-to-laptop(18,14) fluid-to-laptop(24,20);
+    font-weight:600;
+    color: var(--color-white);
+    background-color: var(--color-red-45);
+    border:none;
+    border-radius: var(--border-radius-s);
+    user-select: none; //предотращение появления текста при 2-ом нажатии
+    cursor: pointer;
+
+   
+    @include laptop{
+        border-radius: var(--border-radius-xs);
+    }
+    @include hover{
+        background-color: var(--color-red-60);
+        color: var(--color-white);
+    }
+    &:active{
+        scale:1.05;
+    }
+    &:disabled{
+        color: var(--color-gray-60);
+        background-color: var(--color-black-06);
+        pointer-events: none;
+    }
+    &:has(.button__icon:only-child){
+        padding: 0;
+
+    }
+
+    &.is-active{
+        background-color: (var(--color-black-10)) !important;
+
+    }
+
+    &--transparent{
+        background-color: transparent;
+        &:has(.button__icon:only-child){
+            @include square(44px);
+
+            .button__icon{
+                --iconSize:#{fluid-to-laptop(34,24)};
+            }
+        }
+    }
+
+    &--black-06, &--black-08,&--black-10{
+        border: var(--border);
+    }
+
+    &--black-10{
+        background-color: var(--color-black-10);
+        &:has(.button__icon:only-child){
+            @include square(44px);
+
+            .button__icon{
+                --iconSize:#{fluid-to-laptop(34,24)};
+            }
+        }
+    }
+    &--black-08{
+        background-color: var(--color-black-08);
+        &:has(.button__icon:only-child){
+            @include square(44px);
+
+            .button__icon{
+                --iconSize:#{fluid-to-laptop(34,24)};
+            }
+        }
+    }
+    &--black-06{
+        background-color: var(--color-black-06);
+        &:has(.button__icon:only-child){
+            @include square(44px);
+
+            .button__icon{
+                --iconSize:#{fluid-to-laptop(34,24)};
+            }
+        }
+    }
+
+    &--info{
+        border-radius: 51px;
+        font-size: 300;
+        font-size: fluid-to-laptop(16,12);
+        color: var(--color-gray-75);
+        padding: 6px 10px 6px 6px;
+
+    }
+
+}
